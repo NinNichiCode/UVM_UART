@@ -1,2 +1,2 @@
-+ Verification for UART
++ Verify for UART
 + tool: Questasim, Cygwin
