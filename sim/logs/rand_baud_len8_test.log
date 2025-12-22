@@ -1,6 +1,6 @@
-# vsim -c top "+UVM_TESTNAME=rand_baud_len8_test" -l logs/rand_baud_len8_test.log -do "run -all; quit -f" 
-# Start time: 18:29:34 on Dec 16,2025
-# ** Note: (vsim-8009) Loading existing optimized design _opt
+# vsim -c -coverage top "+UVM_TESTNAME=rand_baud_len8_test" -voptargs="+acc" -l logs/rand_baud_len8_test.log -do "coverage save -onexit cov/rand_baud_len8_test.ucdb; run -all; quit " 
+# Start time: 11:35:08 on Dec 22,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
 # //  Questa Sim-64
 # //  Version 10.7c win64 Aug 18 2018
 # //
@@ -21,9 +21,15 @@
 # Loading work.uart_pkg(fast)
 # Loading work.top_sv_unit(fast)
 # Loading work.top(fast)
+# Loading work.uart_if(fast)
+# Loading work.uart(fast)
+# Loading work.clk_gen(fast)
+# Loading work.uart_tx(fast)
+# Loading work.uart_rx(fast)
 # Loading mtiUvm.questa_uvm_pkg(fast)
 # Loading D:/questasim_b_install/uvm-1.1d\win64\uvm_dpi.dll
-# run -all
+# coverage save -onexit cov/rand_baud_len8_test.ucdb
+#  run -all
 # ----------------------------------------------------------------
 # UVM-1.1d
 # (C) 2007-2013 Mentor Graphics Corporation
@@ -54,20 +60,22 @@
 # uvm_test_top               rand_baud_len8_test     -     @471 
 #   env                      uart_env                -     @478 
 #     a                      uart_agent              -     @485 
-#       d                    uart_driver             -     @507 
-#         rsp_port           uvm_analysis_port       -     @522 
-#         seq_item_port      uvm_seq_item_pull_port  -     @514 
-#       m                    uart_monitor            -     @500 
-#         send               uvm_analysis_port       -     @648 
-#       seqr                 uvm_sequencer           -     @530 
-#         rsp_export         uvm_analysis_export     -     @537 
-#         seq_item_export    uvm_seq_item_pull_imp   -     @631 
+#       d                    uart_driver             -     @522 
+#         rsp_port           uvm_analysis_port       -     @537 
+#         seq_item_port      uvm_seq_item_pull_port  -     @529 
+#       m                    uart_monitor            -     @515 
+#         send               uvm_analysis_port       -     @663 
+#       seqr                 uvm_sequencer           -     @545 
+#         rsp_export         uvm_analysis_export     -     @552 
+#         seq_item_export    uvm_seq_item_pull_imp   -     @646 
 #         arbitration_queue  array                   0     -    
 #         lock_queue         array                   0     -    
 #         num_last_reqs      integral                32    'd1  
 #         num_last_rsps      integral                32    'd1  
+#     cov                    uart_coverage           -     @499 
+#       analysis_imp         uvm_analysis_imp        -     @506 
 #     s                      uart_scoreboard         -     @492 
-#       recv                 uvm_analysis_imp        -     @662 
+#       recv                 uvm_analysis_imp        -     @677 
 # --------------------------------------------------------------
 # 
 # UVM_INFO ../uvc/env/uart_driver.sv(33) @ 0: uvm_test_top.env.a.d [DRV] System Reset : Start of Simulation
@@ -105,24 +113,24 @@
 # UVM_INFO ../uvc/env/uart_scoreboard.sv(23) @ 2783190000: uvm_test_top.env.s [SCO] BAUD:14400 LEN:8 PAR_T:1 PAR_EN:0 STOP:0 TX_DATA:28 RX_DATA:28
 # UVM_INFO ../uvc/env/uart_scoreboard.sv(27) @ 2783190000: uvm_test_top.env.s [SCO] Test Passed
 # ----------------------------------------------------------------
-# UVM_INFO ../uvc/env/uart_driver.sv(54) @ 2783190000: uvm_test_top.env.a.d [DRV] BAUD:38400 LEN:8 PAR_T:0 PAR_EN:0 STOP:0 TX_DATA:24
-# UVM_INFO ../uvc/env/uart_monitor.sv(46) @ 3404030000: uvm_test_top.env.a.m [MON] BAUD:38400 LEN:8 PAR_T:0 PAR_EN:0 STOP:0 TX_DATA:24 RX_DATA:24
-# UVM_INFO ../uvc/env/uart_scoreboard.sv(23) @ 3404030000: uvm_test_top.env.s [SCO] BAUD:38400 LEN:8 PAR_T:0 PAR_EN:0 STOP:0 TX_DATA:24 RX_DATA:24
-# UVM_INFO ../uvc/env/uart_scoreboard.sv(27) @ 3404030000: uvm_test_top.env.s [SCO] Test Passed
+# UVM_INFO ../uvc/env/uart_driver.sv(54) @ 2783190000: uvm_test_top.env.a.d [DRV] BAUD:128000 LEN:8 PAR_T:0 PAR_EN:0 STOP:0 TX_DATA:24
+# UVM_INFO ../uvc/env/uart_monitor.sv(46) @ 2974550000: uvm_test_top.env.a.m [MON] BAUD:128000 LEN:8 PAR_T:0 PAR_EN:0 STOP:0 TX_DATA:24 RX_DATA:24
+# UVM_INFO ../uvc/env/uart_scoreboard.sv(23) @ 2974550000: uvm_test_top.env.s [SCO] BAUD:128000 LEN:8 PAR_T:0 PAR_EN:0 STOP:0 TX_DATA:24 RX_DATA:24
+# UVM_INFO ../uvc/env/uart_scoreboard.sv(27) @ 2974550000: uvm_test_top.env.s [SCO] Test Passed
 # ----------------------------------------------------------------
-# UVM_INFO ../uvc/env/uart_driver.sv(54) @ 3404030000: uvm_test_top.env.a.d [DRV] BAUD:57600 LEN:8 PAR_T:0 PAR_EN:0 STOP:0 TX_DATA:53
-# UVM_INFO ../uvc/env/uart_monitor.sv(46) @ 3818430000: uvm_test_top.env.a.m [MON] BAUD:57600 LEN:8 PAR_T:0 PAR_EN:0 STOP:0 TX_DATA:53 RX_DATA:53
-# UVM_INFO ../uvc/env/uart_scoreboard.sv(23) @ 3818430000: uvm_test_top.env.s [SCO] BAUD:57600 LEN:8 PAR_T:0 PAR_EN:0 STOP:0 TX_DATA:53 RX_DATA:53
-# UVM_INFO ../uvc/env/uart_scoreboard.sv(27) @ 3818430000: uvm_test_top.env.s [SCO] Test Passed
+# UVM_INFO ../uvc/env/uart_driver.sv(54) @ 2974550000: uvm_test_top.env.a.d [DRV] BAUD:57600 LEN:8 PAR_T:0 PAR_EN:0 STOP:0 TX_DATA:53
+# UVM_INFO ../uvc/env/uart_monitor.sv(46) @ 3386710000: uvm_test_top.env.a.m [MON] BAUD:57600 LEN:8 PAR_T:0 PAR_EN:0 STOP:0 TX_DATA:53 RX_DATA:53
+# UVM_INFO ../uvc/env/uart_scoreboard.sv(23) @ 3386710000: uvm_test_top.env.s [SCO] BAUD:57600 LEN:8 PAR_T:0 PAR_EN:0 STOP:0 TX_DATA:53 RX_DATA:53
+# UVM_INFO ../uvc/env/uart_scoreboard.sv(27) @ 3386710000: uvm_test_top.env.s [SCO] Test Passed
 # ----------------------------------------------------------------
-# UVM_INFO ../uvc/env/uart_driver.sv(54) @ 3818430000: uvm_test_top.env.a.d [DRV] BAUD:4800 LEN:8 PAR_T:1 PAR_EN:0 STOP:0 TX_DATA:30
-# UVM_INFO ../uvc/env/uart_monitor.sv(46) @ 8859590000: uvm_test_top.env.a.m [MON] BAUD:4800 LEN:8 PAR_T:1 PAR_EN:0 STOP:0 TX_DATA:30 RX_DATA:30
-# UVM_INFO ../uvc/env/uart_scoreboard.sv(23) @ 8859590000: uvm_test_top.env.s [SCO] BAUD:4800 LEN:8 PAR_T:1 PAR_EN:0 STOP:0 TX_DATA:30 RX_DATA:30
-# UVM_INFO ../uvc/env/uart_scoreboard.sv(27) @ 8859590000: uvm_test_top.env.s [SCO] Test Passed
+# UVM_INFO ../uvc/env/uart_driver.sv(54) @ 3386710000: uvm_test_top.env.a.d [DRV] BAUD:4800 LEN:8 PAR_T:1 PAR_EN:0 STOP:0 TX_DATA:30
+# UVM_INFO ../uvc/env/uart_monitor.sv(46) @ 8427870000: uvm_test_top.env.a.m [MON] BAUD:4800 LEN:8 PAR_T:1 PAR_EN:0 STOP:0 TX_DATA:30 RX_DATA:30
+# UVM_INFO ../uvc/env/uart_scoreboard.sv(23) @ 8427870000: uvm_test_top.env.s [SCO] BAUD:4800 LEN:8 PAR_T:1 PAR_EN:0 STOP:0 TX_DATA:30 RX_DATA:30
+# UVM_INFO ../uvc/env/uart_scoreboard.sv(27) @ 8427870000: uvm_test_top.env.s [SCO] Test Passed
 # ----------------------------------------------------------------
-# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 8859590000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
-# UVM_INFO ../uvc/tests/base_test.sv(38) @ 8859590000: uvm_test_top [TEST] =============================
-# UVM_INFO ../uvc/tests/base_test.sv(40) @ 8859590000: uvm_test_top [TEST] TEST PASSED
+# UVM_INFO verilog_src/uvm-1.1d/src/base/uvm_objection.svh(1267) @ 8427870000: reporter [TEST_DONE] 'run' phase is ready to proceed to the 'extract' phase
+# UVM_INFO ../uvc/tests/base_test.sv(38) @ 8427870000: uvm_test_top [TEST] =============================
+# UVM_INFO ../uvc/tests/base_test.sv(40) @ 8427870000: uvm_test_top [TEST] TEST PASSED
 # 
 # --- UVM Report Summary ---
 # 
@@ -141,6 +149,7 @@
 # [TEST_DONE]     1
 # [UVMTOP]     1
 # ** Note: $finish    : D:/questasim_b_install/win64/../verilog_src/uvm-1.1d/src/base/uvm_root.svh(430)
-#    Time: 8859590 ns  Iteration: 64  Instance: /top
-# End time: 18:29:40 on Dec 16,2025, Elapsed time: 0:00:06
+#    Time: 8427870 ns  Iteration: 64  Instance: /top
+# Saving coverage database on exit...
+# End time: 11:35:15 on Dec 22,2025, Elapsed time: 0:00:07
 # Errors: 0, Warnings: 0

@@ -1,0 +1,1954 @@
+Coverage Report by file with details
+
+=================================================================================
+=== File: ..//uart.v
+=================================================================================
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                       118       105        13     88.98
+
+================================Branch Details================================
+
+Branch Coverage for file ..//uart.v --
+
+------------------------------------IF Branch------------------------------------
+    18                                      1867     Count coming in to IF
+    18              1                         11     		if(rst)begin
+    22              1                       1856     		else begin 		
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    23                                      1856     Count coming in to CASE
+    24              1                        218     				4800 :	begin
+    28              1                        196     				9600  : begin
+    32              1                        242     				14400 : begin 
+    36              1                        254     				19200 : begin 
+    40              1                        260     				38400: begin
+    44              1                        212     				57600 : begin 
+    48              1                        210     				115200: begin 
+    52              1                        264     				128000: begin 
+    56              1                    ***0***     				 default: begin 
+Branch totals: 8 hits of 9 branches = 88.88%
+
+------------------------------------IF Branch------------------------------------
+    67                                  80301440     Count coming in to IF
+    67              1                         55      if(rst) 
+    73              1                   80301385      else 
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    75                                  80301385     Count coming in to IF
+    75              1                   79878810         if(rx_count <= rx_max)
+    79              1                     422575         else 
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    90                                  80301440     Count coming in to IF
+    90              1                         55      if(rst) 
+    96              1                   80301385      else 
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    98                                  80301385     Count coming in to IF
+    98              1                   80274268         if(tx_count <= tx_max)
+    102             1                      27117         else 
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    141                                     1567     Count coming in to IF
+    141             1                        801            if(parity_type == 1'b1) ///odd
+    151             1                        766             else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    143                                      801     Count coming in to CASE
+    144             1                         12                   4'd5 : parity_bit = ^(tx_data[4:0]); //xor
+    145             1                         10                   4'd6 : parity_bit = ^(tx_data[5:0]); 
+    146             1                          8                   4'd7 : parity_bit = ^(tx_data[6:0]);
+    147             1                        771                   4'd8 : parity_bit = ^(tx_data[7:0]);
+    148             1                    ***0***                   default : parity_bit = 1'b0; 
+Branch totals: 4 hits of 5 branches = 80.00%
+
+------------------------------------CASE Branch------------------------------------
+    153                                      766     Count coming in to CASE
+    154             1                          6                   4'd5 : parity_bit = ~^(tx_data[4:0]);//xnor
+    155             1                          6                   4'd6 : parity_bit = ~^(tx_data[5:0]); 
+    156             1                          6                   4'd7 : parity_bit = ~^(tx_data[6:0]);
+    157             1                        748                   4'd8 : parity_bit = ~^(tx_data[7:0]);
+    158             1                    ***0***                   default : parity_bit = 1'b0; 
+Branch totals: 4 hits of 5 branches = 80.00%
+
+------------------------------------IF Branch------------------------------------
+    166                                     7324     Count coming in to IF
+    166             1                    ***0***           if(rst)
+    168             1                       7324           else
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------CASE Branch------------------------------------
+    178                                    15138     Count coming in to CASE
+    179             1                       1063           idle :
+    191             1                       1050           start_bit : 
+    199             1                       8340           send_data:
+    219             1                       1030           send_parity: 
+    226             1                       1050           send_first_stop : 
+    235             1                          5           send_sec_stop : 
+    244             1                       2600         done :
+    250             1                    ***0***         default : next_state  = idle;
+Branch totals: 7 hits of 8 branches = 87.50%
+
+------------------------------------IF Branch------------------------------------
+    185                                     1063     Count coming in to IF
+    185             1                       1052                    if(tx_start) 
+    187             1                         11                     else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    201                                     8340     Count coming in to IF
+    201             1                       7290                     if(count < (length - 1)) 
+    206             1                       1030                     else if (parity_en)
+    211             1                         20                     else
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    229                                     1050     Count coming in to IF
+    229             1                          5            if(stop2)
+    231             1                       1045             else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    259                                    13564     Count coming in to CASE
+    260             1                       1050        idle : begin
+    264             1                       1050       start_bit : begin
+    268             1                       8340       send_data: begin
+    272             1                       1030       send_parity: begin
+    276             1                       1050       send_first_stop : begin
+    280             1                          5       send_sec_stop : begin
+    284             1                       1039       done : begin
+    288             1                    ***0***         default : count <= 0;
+Branch totals: 7 hits of 8 branches = 87.50%
+
+------------------------------------IF Branch------------------------------------
+    320                                    11520     Count coming in to IF
+    320             1                    ***0***           if(rst)
+    322             1                      11520           else
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------CASE Branch------------------------------------
+    332                                   192538     Count coming in to CASE
+    333             1                       2666              idle: 
+    346             1                      17315              start_bit: 
+    363             1                     137627                 recv_data: begin
+    403             1                      17000               check_parity: begin
+    425             1                      16800                 check_first_stop : 
+    444             1                         80                 check_sec_stop: begin
+    460             1                       1050             done :  begin
+                                         ***0***     All False Count
+Branch totals: 7 hits of 8 branches = 87.50%
+
+------------------------------------IF Branch------------------------------------
+    337                                     2666     Count coming in to IF
+    337             1                       1050                  if(rx_start && !rx)
+    339             1                       1616                  else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    348                                    17315     Count coming in to IF
+    348             1                    ***0***                    if(count == 7 && rx)
+    352             1                       1359                     else if (count == 15)
+    356             1                      15956                     else
+Branch totals: 2 hits of 3 branches = 66.66%
+
+------------------------------------IF Branch------------------------------------
+    369                                   137627     Count coming in to IF
+    369             1                       8408                    if(count == 7)
+    373             1                       1122                    else if(count == 15 && bit_count == (length - 1))
+    397             1                     128097                     else
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------CASE Branch------------------------------------
+    376                                     1122     Count coming in to CASE
+    377             1                         11                          5: rx_out = datard[7:3];
+    378             1                         12                          6: rx_out = datard[7:2];
+    379             1                         11                          7: rx_out = datard[7:1];
+    380             1                       1088                          8: rx_out = datard[7:0];
+    381             1                    ***0***                          default : rx_out = 8'h00;
+Branch totals: 4 hits of 5 branches = 80.00%
+
+------------------------------------IF Branch------------------------------------
+    385                                     1122     Count coming in to IF
+    385             1                        565                     if(parity_type)
+    387             1                        557                    else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    391                                     1122     Count coming in to IF
+    391             1                       1099                          if(parity_en)
+    393             1                         23                          else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    407                                    17000     Count coming in to IF
+    407             1                       1108                   if(count == 7) 
+    414             1                       1099                  else if (count == 15) 
+    418             1                      14793                  else
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    409                                     1108     Count coming in to IF
+    409             1                        956                         if(rx == parity)
+    411             1                        152                         else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    427                                    16800     Count coming in to IF
+    427             1                       1050                    if(count == 7)
+    434             1                       1050                     else if (count == 15)
+                                           14700     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    429                                     1050     Count coming in to IF
+    429             1                    ***0***                           if(rx != 1'b1)
+    431             1                       1050                           else
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    436                                     1050     Count coming in to IF
+    436             1                          5                          if(stop2)
+    438             1                       1045                          else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    445                                       80     Count coming in to IF
+    445             1                          5                   if(count == 7)
+    452             1                          5                     else if (count == 15)
+                                              70     All False Count
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    447                                        5     Count coming in to IF
+    447             1                    ***0***                           if(rx != 1'b1)
+    449             1                          5                           else
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------CASE Branch------------------------------------
+    473                                   185700     Count coming in to CASE
+    474             1                       1050              idle: 
+    482             1                      16800              start_bit: 
+    491             1                     133440                 recv_data: begin
+    502             1                      16480               check_parity: begin
+    511             1                      16800                 check_first_stop : 
+    520             1                         80                 check_sec_stop: begin
+    529             1                       1050             done :  begin
+                                         ***0***     All False Count
+Branch totals: 7 hits of 8 branches = 87.50%
+
+------------------------------------IF Branch------------------------------------
+    484                                    16800     Count coming in to IF
+    484             1                      15750                 if(count < 15)
+    486             1                       1050                 else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    492                                   133440     Count coming in to IF
+    492             1                     125100                 if(count < 15)
+    494             1                       8340                 else begin
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    503                                    16480     Count coming in to IF
+    503             1                      15450                   if(count < 15)
+    505             1                       1030                 else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    513                                    16800     Count coming in to IF
+    513             1                      15750                  if(count < 15)
+    515             1                       1050                 else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    521                                       80     Count coming in to IF
+    521             1                         75                  if(count < 15)
+    523             1                          5                 else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms             23        21         2     91.30
+
+================================Condition Details================================
+
+Condition Coverage for file ..//uart.v --
+
+----------------Focused Condition View-------------------
+Line       75 Item    1  (rx_count <= rx_max)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       98 Item    1  (tx_count <= tx_max)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       201 Item    1  (count < (length - 1))
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       337 Item    1  (rx_start && ~rx)
+Condition totals: 2 of 2 input terms covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       348 Item    1  ((count == 7) && rx)
+Condition totals: 0 of 2 input terms covered = 0.00%
+
+    Input Term   Covered  Reason for no coverage   Hint
+   -----------  --------  -----------------------  --------------
+  (count == 7)         N  '_1' not hit             Hit '_1'
+            rx         N  '_1' not hit             Hit '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:         11  (count == 7)_0        -                             
+  Row   2:    ***0***  (count == 7)_1        rx                            
+  Row   3:         11  rx_0                  (count == 7)                  
+  Row   4:    ***0***  rx_1                  (count == 7)                  
+
+----------------Focused Condition View-------------------
+Line       352 Item    1  (count == 15)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       369 Item    1  (count == 7)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       373 Item    1  ((count == 15) && (bit_count == (length - 1)))
+Condition totals: 2 of 2 input terms covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       407 Item    1  (count == 7)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       409 Item    1  (rx == parity)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       414 Item    1  (count == 15)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       427 Item    1  (count == 7)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       434 Item    1  (count == 15)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       445 Item    1  (count == 7)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       452 Item    1  (count == 15)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       484 Item    1  (count < 15)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       492 Item    1  (count < 15)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       503 Item    1  (count < 15)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       513 Item    1  (count < 15)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+----------------Focused Condition View-------------------
+Line       521 Item    1  (count < 15)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+
+FSM Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FSMs                                                       82.14
+        States                      14        14         0    100.00
+        Transitions                 28        18        10     64.28
+
+================================FSM Details================================
+
+FSM Coverage for file ..//uart.v --
+
+FSM_ID: state
+    Current State Object : state
+    ----------------------
+    State Value MapInfo :
+    ---------------------
+Line          State Name               Value
+----          ----------               -----
+ 179                idle                   0
+ 191           start_bit                   1
+ 199           send_data                   2
+ 226     send_first_stop                   4
+ 219         send_parity                   3
+ 244                done                   6
+ 235       send_sec_stop                   5
+    Covered States :
+    ----------------
+                   State           Hit_count
+                   -----           ---------
+                    idle                1039
+               start_bit                1050
+               send_data                2100
+         send_first_stop                1050
+             send_parity                1030
+                    done                1050
+           send_sec_stop                   5
+    Covered Transitions :
+    ---------------------
+Line            Trans_ID           Hit_count          Transition          
+----            --------           ---------          ----------          
+ 186                   0                1050          idle -> start_bit   
+ 195                   1                1050          start_bit -> send_data
+ 214                   3                  20          send_data -> send_first_stop
+ 209                   4                1030          send_data -> send_parity
+ 232                   6                1045          send_first_stop -> done
+ 230                   7                   5          send_first_stop -> send_sec_stop
+ 222                   9                1030          send_parity -> send_first_stop
+ 247                  11                1039          done -> idle        
+ 238                  12                   5          send_sec_stop -> done
+    Uncovered Transitions :
+    -----------------------
+Line            Trans_ID          Transition          
+----            --------          ----------          
+ 167                   2          start_bit -> idle   
+ 167                   5          send_data -> idle   
+ 167                   8          send_first_stop -> idle
+ 167                  10          send_parity -> idle 
+ 167                  13          send_sec_stop -> idle
+
+
+    Summary                     Active      Hits    Misses % Covered
+    -------                     ------      ----    ------ ---------
+        States                       7         7         0    100.00
+        Transitions                 14         9         5     64.28
+FSM_ID: state
+    Current State Object : state
+    ----------------------
+    State Value MapInfo :
+    ---------------------
+Line          State Name               Value
+----          ----------               -----
+ 333                idle                   0
+ 346           start_bit                   1
+ 363           recv_data                   2
+ 425    check_first_stop                   4
+ 403        check_parity                   3
+ 460                done                   6
+ 444      check_sec_stop                   5
+    Covered States :
+    ----------------
+                   State           Hit_count
+                   -----           ---------
+                    idle                2100
+               start_bit                2100
+               recv_data                2100
+        check_first_stop                2100
+            check_parity                2060
+                    done                1050
+          check_sec_stop                  10
+    Covered Transitions :
+    ---------------------
+Line            Trans_ID           Hit_count          Transition          
+----            --------           ---------          ----------          
+ 338                   0                1050          idle -> start_bit   
+ 354                   1                1050          start_bit -> recv_data
+ 394                   3                  20          recv_data -> check_first_stop
+ 392                   4                1030          recv_data -> check_parity
+ 439                   6                1045          check_first_stop -> done
+ 437                   7                   5          check_first_stop -> check_sec_stop
+ 416                   9                1030          check_parity -> check_first_stop
+ 462                  11                1050          done -> idle        
+ 454                  12                   5          check_sec_stop -> done
+    Uncovered Transitions :
+    -----------------------
+Line            Trans_ID          Transition          
+----            --------          ----------          
+ 350                   2          start_bit -> idle   
+ 321                   5          recv_data -> idle   
+ 321                   8          check_first_stop -> idle
+ 321                  10          check_parity -> idle
+ 321                  13          check_sec_stop -> idle
+
+
+    Summary                     Active      Hits    Misses % Covered
+    -------                     ------      ----    ------ ---------
+        States                       7         7         0    100.00
+        Transitions                 14         9         5     64.28
+Toggle Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Toggle Bins                    740       356       384     48.10
+
+================================Toggle Details================================
+
+Toggle Coverage for File ..//uart.v --
+
+       Line                                   Node      1H->0L      0L->1H                          "Coverage"
+--------------------------------------------------------------------------------------------------------------
+          8                                    rst          11           0                               50.00 
+          9                                baud[5]           0           0                                0.00 
+          9                                baud[4]           0           0                                0.00 
+          9                                baud[3]           0           0                                0.00 
+          9                                baud[2]           0           0                                0.00 
+          9                                baud[1]           0           0                                0.00 
+          9                                baud[0]           0           0                                0.00 
+         13                             tx_max[31]           0           0                                0.00 
+         13                             tx_max[30]           0           0                                0.00 
+         13                             tx_max[29]           0           0                                0.00 
+         13                             tx_max[28]           0           0                                0.00 
+         13                             tx_max[27]           0           0                                0.00 
+         13                             tx_max[26]           0           0                                0.00 
+         13                             tx_max[25]           0           0                                0.00 
+         13                             tx_max[24]           0           0                                0.00 
+         13                             tx_max[23]           0           0                                0.00 
+         13                             tx_max[22]           0           0                                0.00 
+         13                             tx_max[21]           0           0                                0.00 
+         13                             tx_max[20]           0           0                                0.00 
+         13                             tx_max[19]           0           0                                0.00 
+         13                             tx_max[18]           0           0                                0.00 
+         13                             tx_max[17]           0           0                                0.00 
+         13                             tx_max[16]           0           0                                0.00 
+         13                             tx_max[15]           0           0                                0.00 
+         13                             tx_max[14]           0           0                                0.00 
+         13                              tx_max[0]           0           0                                0.00 
+         13                             rx_max[31]           0           0                                0.00 
+         13                             rx_max[30]           0           0                                0.00 
+         13                             rx_max[29]           0           0                                0.00 
+         13                             rx_max[28]           0           0                                0.00 
+         13                             rx_max[27]           0           0                                0.00 
+         13                             rx_max[26]           0           0                                0.00 
+         13                             rx_max[25]           0           0                                0.00 
+         13                             rx_max[24]           0           0                                0.00 
+         13                             rx_max[23]           0           0                                0.00 
+         13                             rx_max[22]           0           0                                0.00 
+         13                             rx_max[21]           0           0                                0.00 
+         13                             rx_max[20]           0           0                                0.00 
+         13                             rx_max[19]           0           0                                0.00 
+         13                             rx_max[18]           0           0                                0.00 
+         13                             rx_max[17]           0           0                                0.00 
+         13                             rx_max[16]           0           0                                0.00 
+         13                             rx_max[15]           0           0                                0.00 
+         13                             rx_max[14]           0           0                                0.00 
+         13                             rx_max[13]           0           0                                0.00 
+         13                             rx_max[12]           0           0                                0.00 
+         13                             rx_max[11]           0           0                                0.00 
+         13                             rx_max[10]           0           0                                0.00 
+         14                           tx_count[31]           0           0                                0.00 
+         14                           tx_count[30]           0           0                                0.00 
+         14                           tx_count[29]           0           0                                0.00 
+         14                           tx_count[28]           0           0                                0.00 
+         14                           tx_count[27]           0           0                                0.00 
+         14                           tx_count[26]           0           0                                0.00 
+         14                           tx_count[25]           0           0                                0.00 
+         14                           tx_count[24]           0           0                                0.00 
+         14                           tx_count[23]           0           0                                0.00 
+         14                           tx_count[22]           0           0                                0.00 
+         14                           tx_count[21]           0           0                                0.00 
+         14                           tx_count[20]           0           0                                0.00 
+         14                           tx_count[19]           0           0                                0.00 
+         14                           tx_count[18]           0           0                                0.00 
+         14                           tx_count[17]           0           0                                0.00 
+         14                           tx_count[16]           0           0                                0.00 
+         14                           tx_count[15]           0           0                                0.00 
+         14                           tx_count[14]           0           0                                0.00 
+         14                           rx_count[31]           0           0                                0.00 
+         14                           rx_count[30]           0           0                                0.00 
+         14                           rx_count[29]           0           0                                0.00 
+         14                           rx_count[28]           0           0                                0.00 
+         14                           rx_count[27]           0           0                                0.00 
+         14                           rx_count[26]           0           0                                0.00 
+         14                           rx_count[25]           0           0                                0.00 
+         14                           rx_count[24]           0           0                                0.00 
+         14                           rx_count[23]           0           0                                0.00 
+         14                           rx_count[22]           0           0                                0.00 
+         14                           rx_count[21]           0           0                                0.00 
+         14                           rx_count[20]           0           0                                0.00 
+         14                           rx_count[19]           0           0                                0.00 
+         14                           rx_count[18]           0           0                                0.00 
+         14                           rx_count[17]           0           0                                0.00 
+         14                           rx_count[16]           0           0                                0.00 
+         14                           rx_count[15]           0           0                                0.00 
+         14                           rx_count[14]           0           0                                0.00 
+         14                           rx_count[13]           0           0                                0.00 
+         14                           rx_count[12]           0           0                                0.00 
+         14                           rx_count[11]           0           0                                0.00 
+         14                           rx_count[10]           0           0                                0.00 
+        119                               tx_start           0          11                               50.00 
+        120                                    rst          11           0                               50.00 
+        122                              length[3]           0           5                               50.00 
+        122                              length[2]           0           6                               50.00 
+        122                              length[1]           0           4                               50.00 
+        122                              length[0]           0           4                               50.00 
+        123                              parity_en           0           7                               50.00 
+        124                                  stop2           0           1                               50.00 
+        125                                 tx_err           0           0                                0.00 
+        133                               count[9]           0           0                                0.00 
+        133                               count[8]           0           0                                0.00 
+        133                               count[7]           0           0                                0.00 
+        133                               count[6]           0           0                                0.00 
+        133                               count[5]           0           0                                0.00 
+        133                               count[4]           0           0                                0.00 
+        133                              count[31]           0           0                                0.00 
+        133                              count[30]           0           0                                0.00 
+        133                              count[29]           0           0                                0.00 
+        133                              count[28]           0           0                                0.00 
+        133                              count[27]           0           0                                0.00 
+        133                              count[26]           0           0                                0.00 
+        133                              count[25]           0           0                                0.00 
+        133                              count[24]           0           0                                0.00 
+        133                              count[23]           0           0                                0.00 
+        133                              count[22]           0           0                                0.00 
+        133                              count[21]           0           0                                0.00 
+        133                              count[20]           0           0                                0.00 
+        133                              count[19]           0           0                                0.00 
+        133                              count[18]           0           0                                0.00 
+        133                              count[17]           0           0                                0.00 
+        133                              count[16]           0           0                                0.00 
+        133                              count[15]           0           0                                0.00 
+        133                              count[14]           0           0                                0.00 
+        133                              count[13]           0           0                                0.00 
+        133                              count[12]           0           0                                0.00 
+        133                              count[11]           0           0                                0.00 
+        133                              count[10]           0           0                                0.00 
+        136                                  state               ENUM type       Value       Count 
+        136                             next_state               ENUM type       Value       Count 
+        301                               rx_start           0          11                               50.00 
+        302                                    rst          11           0                               50.00 
+        303                              length[3]           0           5                               50.00 
+        303                              length[2]           0           6                               50.00 
+        303                              length[1]           0           4                               50.00 
+        303                              length[0]           0           4                               50.00 
+        304                              parity_en           0           7                               50.00 
+        305                                  stop2           0           1                               50.00 
+        312                               count[9]           0           0                                0.00 
+        312                               count[8]           0           0                                0.00 
+        312                               count[7]           0           0                                0.00 
+        312                               count[6]           0           0                                0.00 
+        312                               count[5]           0           0                                0.00 
+        312                               count[4]           0           0                                0.00 
+        312                              count[31]           0           0                                0.00 
+        312                              count[30]           0           0                                0.00 
+        312                              count[29]           0           0                                0.00 
+        312                              count[28]           0           0                                0.00 
+        312                              count[27]           0           0                                0.00 
+        312                              count[26]           0           0                                0.00 
+        312                              count[25]           0           0                                0.00 
+        312                              count[24]           0           0                                0.00 
+        312                              count[23]           0           0                                0.00 
+        312                              count[22]           0           0                                0.00 
+        312                              count[21]           0           0                                0.00 
+        312                              count[20]           0           0                                0.00 
+        312                              count[19]           0           0                                0.00 
+        312                              count[18]           0           0                                0.00 
+        312                              count[17]           0           0                                0.00 
+        312                              count[16]           0           0                                0.00 
+        312                              count[15]           0           0                                0.00 
+        312                              count[14]           0           0                                0.00 
+        312                              count[13]           0           0                                0.00 
+        312                              count[12]           0           0                                0.00 
+        312                              count[11]           0           0                                0.00 
+        312                              count[10]           0           0                                0.00 
+        313                           bit_count[9]           0           0                                0.00 
+        313                           bit_count[8]           0           0                                0.00 
+        313                           bit_count[7]           0           0                                0.00 
+        313                           bit_count[6]           0           0                                0.00 
+        313                           bit_count[5]           0           0                                0.00 
+        313                           bit_count[4]           0           0                                0.00 
+        313                          bit_count[31]           0           0                                0.00 
+        313                          bit_count[30]           0           0                                0.00 
+        313                          bit_count[29]           0           0                                0.00 
+        313                          bit_count[28]           0           0                                0.00 
+        313                          bit_count[27]           0           0                                0.00 
+        313                          bit_count[26]           0           0                                0.00 
+        313                          bit_count[25]           0           0                                0.00 
+        313                          bit_count[24]           0           0                                0.00 
+        313                          bit_count[23]           0           0                                0.00 
+        313                          bit_count[22]           0           0                                0.00 
+        313                          bit_count[21]           0           0                                0.00 
+        313                          bit_count[20]           0           0                                0.00 
+        313                          bit_count[19]           0           0                                0.00 
+        313                          bit_count[18]           0           0                                0.00 
+        313                          bit_count[17]           0           0                                0.00 
+        313                          bit_count[16]           0           0                                0.00 
+        313                          bit_count[15]           0           0                                0.00 
+        313                          bit_count[14]           0           0                                0.00 
+        313                          bit_count[13]           0           0                                0.00 
+        313                          bit_count[12]           0           0                                0.00 
+        313                          bit_count[11]           0           0                                0.00 
+        313                          bit_count[10]           0           0                                0.00 
+        316                                  state               ENUM type       Value       Count 
+        316                             next_state               ENUM type       Value       Count 
+        550                                    rst          11           0                               50.00 
+        551                               tx_start           0          11                               50.00 
+        551                               rx_start           0          11                               50.00 
+        553                                baud[5]           0           0                                0.00 
+        553                                baud[4]           0           0                                0.00 
+        553                                baud[3]           0           0                                0.00 
+        553                                baud[2]           0           0                                0.00 
+        553                                baud[1]           0           0                                0.00 
+        553                                baud[0]           0           0                                0.00 
+        554                              length[3]           0           5                               50.00 
+        554                              length[2]           0           6                               50.00 
+        554                              length[1]           0           4                               50.00 
+        554                              length[0]           0           4                               50.00 
+        555                              parity_en           0           7                               50.00 
+        556                                  stop2           0           1                               50.00 
+        557                                 tx_err           0           0                                0.00 
+
+Total Node Count     =        384 
+Toggled Node Count   =        179 
+Untoggled Node Count =        205 
+
+Toggle Coverage      =      48.10% (356 of 740 bins)
+
+=================================================================================
+=== File: ../tb/uart_if.sv
+=================================================================================
+Toggle Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Toggle Bins                     96        73        23     76.04
+
+================================Toggle Details================================
+
+Toggle Coverage for File ../tb/uart_if.sv --
+
+       Line                                   Node      1H->0L      0L->1H                          "Coverage"
+--------------------------------------------------------------------------------------------------------------
+          2                                    rst          11           0                               50.00 
+          3                               tx_start           0          11                               50.00 
+          3                               rx_start           0          11                               50.00 
+          5                                baud[5]           0           0                                0.00 
+          5                                baud[4]           0           0                                0.00 
+          5                                baud[3]           0           0                                0.00 
+          5                                baud[2]           0           0                                0.00 
+          5                                baud[1]           0           0                                0.00 
+          5                                baud[0]           0           0                                0.00 
+          6                              length[3]           0           5                               50.00 
+          6                              length[2]           0           6                               50.00 
+          6                              length[1]           0           4                               50.00 
+          6                              length[0]           0           4                               50.00 
+          7                              parity_en           0           7                               50.00 
+          8                                  stop2           0           1                               50.00 
+          9                                 tx_err           0           0                                0.00 
+
+Total Node Count     =         48 
+Toggled Node Count   =         32 
+Untoggled Node Count =         16 
+
+Toggle Coverage      =      76.04% (73 of 96 bins)
+
+=================================================================================
+=== File: ../uvc/env/uart_driver.sv
+=================================================================================
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                         8         3         5     37.50
+
+================================Branch Details================================
+
+Branch Coverage for file ../uvc/env/uart_driver.sv --
+
+------------------------------------IF Branch------------------------------------
+    16                                        11     Count coming in to IF
+    16              1                    ***0***        if(!uvm_config_db#(virtual uart_if)::get(this,"","vif",vif)) 
+                                              11     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    17                                   ***0***     Count coming in to IF
+    17              1                    ***0***           `uvm_error("drv","Unable to access Interface");
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    33                                        55     Count coming in to IF
+    33              1                         55        `uvm_info("DRV", "System Reset : Start of Simulation", UVM_MEDIUM);
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    54                                      1050     Count coming in to IF
+    54              1                       1050          `uvm_info("DRV", $sformatf("BAUD:%0d LEN:%0d PAR_T:%0d PAR_EN:%0d STOP:%0d TX_DATA:%0d", tr.baud, tr.length, tr.parity_type, tr.parity_en, tr.stop2, tr.tx_data), UVM_NONE);
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+
+
+=================================================================================
+=== File: ../uvc/env/uart_monitor.sv
+=================================================================================
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                        10         5         5     50.00
+
+================================Branch Details================================
+
+Branch Coverage for file ../uvc/env/uart_monitor.sv --
+
+------------------------------------IF Branch------------------------------------
+    17                                        11     Count coming in to IF
+    17              1                    ***0***           if(!uvm_config_db#(virtual uart_if)::get(this,"","vif",vif))//uvm_test_top.env.agent.drv.aif
+                                              11     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    18                                   ***0***     Count coming in to IF
+    18              1                    ***0***             `uvm_error("MON","Unable to access Interface");
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    25                                      1105     Count coming in to IF
+    25              1                         55           if(vif.rst)
+    31              1                       1050           else
+Branch totals: 2 hits of 2 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    28                                        55     Count coming in to IF
+    28              1                         55             `uvm_info("MON", "SYSTEM RESET DETECTED", UVM_NONE);
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    46                                      1050     Count coming in to IF
+    46              1                       1050                `uvm_info("MON", $sformatf("BAUD:%0d LEN:%0d PAR_T:%0d PAR_EN:%0d STOP:%0d TX_DATA:%0d RX_DATA:%0d", tr.baud, tr.length, tr.parity_type, tr.parity_en, tr.stop2, tr.tx_data, tr.rx_out), UVM_NONE);
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+
+
+=================================================================================
+=== File: ../uvc/env/uart_scoreboard.sv
+=================================================================================
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                        11         7         4     63.63
+
+================================Branch Details================================
+
+Branch Coverage for file ../uvc/env/uart_scoreboard.sv --
+
+------------------------------------IF Branch------------------------------------
+    23                                      1105     Count coming in to IF
+    23              1                       1105         `uvm_info("SCO", $sformatf("BAUD:%0d LEN:%0d PAR_T:%0d PAR_EN:%0d STOP:%0d TX_DATA:%0d RX_DATA:%0d", tr.baud, tr.length, tr.parity_type, tr.parity_en, tr.stop2, tr.tx_data, tr.rx_out), UVM_NONE);
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    24                                      1105     Count coming in to IF
+    24              1                         55         if(tr.rst == 1'b1)
+    26              1                        965         else if(tr.tx_data == tr.rx_out)
+    28              1                         85         else
+Branch totals: 3 hits of 3 branches = 100.00%
+
+------------------------------------IF Branch------------------------------------
+    25                                        55     Count coming in to IF
+    25              1                         55           `uvm_info("SCO", "System Reset", UVM_NONE)
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    27                                       965     Count coming in to IF
+    27              1                        965           `uvm_info("SCO", "Test Passed", UVM_NONE)
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    29                                        85     Count coming in to IF
+    29              1                         85           `uvm_info("SCO", "Test Failed", UVM_NONE)
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              1         1         0    100.00
+
+================================Condition Details================================
+
+Condition Coverage for file ../uvc/env/uart_scoreboard.sv --
+
+----------------Focused Condition View-------------------
+Line       26 Item    1  (tr.tx_data == tr.rx_out)
+Condition totals: 1 of 1 input term covered = 100.00%
+
+
+
+=================================================================================
+=== File: ../uvc/seq/rand_baud_len5p_seq.sv
+=================================================================================
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                        10         0        10      0.00
+
+================================Branch Details================================
+
+Branch Coverage for file ../uvc/seq/rand_baud_len5p_seq.sv --
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               1                    ***0***       `uvm_object_utils(rand_baud_len5p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               2                    ***0***       `uvm_object_utils(rand_baud_len5p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               3                    ***0***       `uvm_object_utils(rand_baud_len5p_seq)
+    3               4                    ***0***       `uvm_object_utils(rand_baud_len5p_seq)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               5                    ***0***       `uvm_object_utils(rand_baud_len5p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               6                    ***0***       `uvm_object_utils(rand_baud_len5p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              2         0         2      0.00
+
+================================Condition Details================================
+
+Condition Coverage for file ../uvc/seq/rand_baud_len5p_seq.sv --
+
+----------------Focused Condition View-------------------
+Line       3 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       3 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+
+=================================================================================
+=== File: ../uvc/seq/rand_baud_len6p_seq.sv
+=================================================================================
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                        10         0        10      0.00
+
+================================Branch Details================================
+
+Branch Coverage for file ../uvc/seq/rand_baud_len6p_seq.sv --
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               1                    ***0***       `uvm_object_utils(rand_baud_len6p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               2                    ***0***       `uvm_object_utils(rand_baud_len6p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               3                    ***0***       `uvm_object_utils(rand_baud_len6p_seq)
+    3               4                    ***0***       `uvm_object_utils(rand_baud_len6p_seq)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               5                    ***0***       `uvm_object_utils(rand_baud_len6p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               6                    ***0***       `uvm_object_utils(rand_baud_len6p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              2         0         2      0.00
+
+================================Condition Details================================
+
+Condition Coverage for file ../uvc/seq/rand_baud_len6p_seq.sv --
+
+----------------Focused Condition View-------------------
+Line       3 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       3 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+
+=================================================================================
+=== File: ../uvc/seq/rand_baud_len7p_seq.sv
+=================================================================================
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                        10         0        10      0.00
+
+================================Branch Details================================
+
+Branch Coverage for file ../uvc/seq/rand_baud_len7p_seq.sv --
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               1                    ***0***       `uvm_object_utils(rand_baud_len7p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               2                    ***0***       `uvm_object_utils(rand_baud_len7p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               3                    ***0***       `uvm_object_utils(rand_baud_len7p_seq)
+    3               4                    ***0***       `uvm_object_utils(rand_baud_len7p_seq)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               5                    ***0***       `uvm_object_utils(rand_baud_len7p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               6                    ***0***       `uvm_object_utils(rand_baud_len7p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              2         0         2      0.00
+
+================================Condition Details================================
+
+Condition Coverage for file ../uvc/seq/rand_baud_len7p_seq.sv --
+
+----------------Focused Condition View-------------------
+Line       3 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       3 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+
+=================================================================================
+=== File: ../uvc/seq/rand_baud_len8p_seq.sv
+=================================================================================
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                        10         0        10      0.00
+
+================================Branch Details================================
+
+Branch Coverage for file ../uvc/seq/rand_baud_len8p_seq.sv --
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               1                    ***0***       `uvm_object_utils(rand_baud_len8p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               2                    ***0***       `uvm_object_utils(rand_baud_len8p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               3                    ***0***       `uvm_object_utils(rand_baud_len8p_seq)
+    3               4                    ***0***       `uvm_object_utils(rand_baud_len8p_seq)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               5                    ***0***       `uvm_object_utils(rand_baud_len8p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               6                    ***0***       `uvm_object_utils(rand_baud_len8p_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              2         0         2      0.00
+
+================================Condition Details================================
+
+Condition Coverage for file ../uvc/seq/rand_baud_len8p_seq.sv --
+
+----------------Focused Condition View-------------------
+Line       3 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       3 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+
+=================================================================================
+=== File: ../uvc/seq/rand_baud_seq.sv
+=================================================================================
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                        10         0        10      0.00
+
+================================Branch Details================================
+
+Branch Coverage for file ../uvc/seq/rand_baud_seq.sv --
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               1                    ***0***       `uvm_object_utils(rand_baud_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               2                    ***0***       `uvm_object_utils(rand_baud_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               3                    ***0***       `uvm_object_utils(rand_baud_seq)
+    3               4                    ***0***       `uvm_object_utils(rand_baud_seq)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               5                    ***0***       `uvm_object_utils(rand_baud_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    3                                    ***0***     Count coming in to IF
+    3               6                    ***0***       `uvm_object_utils(rand_baud_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              2         0         2      0.00
+
+================================Condition Details================================
+
+Condition Coverage for file ../uvc/seq/rand_baud_seq.sv --
+
+----------------Focused Condition View-------------------
+Line       3 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       3 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+
+=================================================================================
+=== File: ../uvc/seq/rand_baud_with_2_stop_seq.sv
+=================================================================================
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                        10         0        10      0.00
+
+================================Branch Details================================
+
+Branch Coverage for file ../uvc/seq/rand_baud_with_2_stop_seq.sv --
+
+------------------------------------IF Branch------------------------------------
+    2                                    ***0***     Count coming in to IF
+    2               1                    ***0***       `uvm_object_utils(rand_baud_with_2_stop_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    2                                    ***0***     Count coming in to IF
+    2               2                    ***0***       `uvm_object_utils(rand_baud_with_2_stop_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    2                                    ***0***     Count coming in to IF
+    2               3                    ***0***       `uvm_object_utils(rand_baud_with_2_stop_seq)
+    2               4                    ***0***       `uvm_object_utils(rand_baud_with_2_stop_seq)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    2                                    ***0***     Count coming in to IF
+    2               5                    ***0***       `uvm_object_utils(rand_baud_with_2_stop_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    2                                    ***0***     Count coming in to IF
+    2               6                    ***0***       `uvm_object_utils(rand_baud_with_2_stop_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              2         0         2      0.00
+
+================================Condition Details================================
+
+Condition Coverage for file ../uvc/seq/rand_baud_with_2_stop_seq.sv --
+
+----------------Focused Condition View-------------------
+Line       2 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       2 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+
+=================================================================================
+=== File: ../uvc/seq/seq_lib.sv
+=================================================================================
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                        40         0        40      0.00
+
+================================Branch Details================================
+
+Branch Coverage for file ../uvc/seq/seq_lib.sv --
+
+------------------------------------IF Branch------------------------------------
+    4                                    ***0***     Count coming in to IF
+    4               1                    ***0***       `uvm_object_utils(rand_baud_len5_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    4                                    ***0***     Count coming in to IF
+    4               2                    ***0***       `uvm_object_utils(rand_baud_len5_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    4                                    ***0***     Count coming in to IF
+    4               3                    ***0***       `uvm_object_utils(rand_baud_len5_seq)
+    4               4                    ***0***       `uvm_object_utils(rand_baud_len5_seq)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    4                                    ***0***     Count coming in to IF
+    4               5                    ***0***       `uvm_object_utils(rand_baud_len5_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    4                                    ***0***     Count coming in to IF
+    4               6                    ***0***       `uvm_object_utils(rand_baud_len5_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    37                                   ***0***     Count coming in to IF
+    37              1                    ***0***       `uvm_object_utils(rand_baud_len6_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    37                                   ***0***     Count coming in to IF
+    37              2                    ***0***       `uvm_object_utils(rand_baud_len6_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    37                                   ***0***     Count coming in to IF
+    37              3                    ***0***       `uvm_object_utils(rand_baud_len6_seq)
+    37              4                    ***0***       `uvm_object_utils(rand_baud_len6_seq)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    37                                   ***0***     Count coming in to IF
+    37              5                    ***0***       `uvm_object_utils(rand_baud_len6_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    37                                   ***0***     Count coming in to IF
+    37              6                    ***0***       `uvm_object_utils(rand_baud_len6_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    69                                   ***0***     Count coming in to IF
+    69              1                    ***0***       `uvm_object_utils(rand_baud_len7_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    69                                   ***0***     Count coming in to IF
+    69              2                    ***0***       `uvm_object_utils(rand_baud_len7_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    69                                   ***0***     Count coming in to IF
+    69              3                    ***0***       `uvm_object_utils(rand_baud_len7_seq)
+    69              4                    ***0***       `uvm_object_utils(rand_baud_len7_seq)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    69                                   ***0***     Count coming in to IF
+    69              5                    ***0***       `uvm_object_utils(rand_baud_len7_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    69                                   ***0***     Count coming in to IF
+    69              6                    ***0***       `uvm_object_utils(rand_baud_len7_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    102                                  ***0***     Count coming in to IF
+    102             1                    ***0***       `uvm_object_utils(rand_baud_len8_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    102                                  ***0***     Count coming in to IF
+    102             2                    ***0***       `uvm_object_utils(rand_baud_len8_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    102                                  ***0***     Count coming in to IF
+    102             3                    ***0***       `uvm_object_utils(rand_baud_len8_seq)
+    102             4                    ***0***       `uvm_object_utils(rand_baud_len8_seq)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    102                                  ***0***     Count coming in to IF
+    102             5                    ***0***       `uvm_object_utils(rand_baud_len8_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    102                                  ***0***     Count coming in to IF
+    102             6                    ***0***       `uvm_object_utils(rand_baud_len8_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              8         0         8      0.00
+
+================================Condition Details================================
+
+Condition Coverage for file ../uvc/seq/seq_lib.sv --
+
+----------------Focused Condition View-------------------
+Line       4 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       4 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+----------------Focused Condition View-------------------
+Line       37 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       37 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+----------------Focused Condition View-------------------
+Line       69 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       69 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+----------------Focused Condition View-------------------
+Line       102 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       102 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+
+=================================================================================
+=== File: ../uvc/seq/transaction.sv
+=================================================================================
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                        10         0        10      0.00
+
+================================Branch Details================================
+
+Branch Coverage for file ../uvc/seq/transaction.sv --
+
+------------------------------------IF Branch------------------------------------
+    5                                    ***0***     Count coming in to IF
+    5               1                    ***0***       `uvm_object_utils(transaction)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    5                                    ***0***     Count coming in to IF
+    5               2                    ***0***       `uvm_object_utils(transaction)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    5                                    ***0***     Count coming in to IF
+    5               3                    ***0***       `uvm_object_utils(transaction)
+    5               4                    ***0***       `uvm_object_utils(transaction)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    5                                    ***0***     Count coming in to IF
+    5               5                    ***0***       `uvm_object_utils(transaction)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    5                                    ***0***     Count coming in to IF
+    5               6                    ***0***       `uvm_object_utils(transaction)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              2         0         2      0.00
+
+================================Condition Details================================
+
+Condition Coverage for file ../uvc/seq/transaction.sv --
+
+----------------Focused Condition View-------------------
+Line       5 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       5 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+
+=================================================================================
+=== File: ../uvc/seq/uart_seq.sv
+=================================================================================
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                        10         0        10      0.00
+
+================================Branch Details================================
+
+Branch Coverage for file ../uvc/seq/uart_seq.sv --
+
+------------------------------------IF Branch------------------------------------
+    2                                    ***0***     Count coming in to IF
+    2               1                    ***0***      `uvm_object_utils(uart_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    2                                    ***0***     Count coming in to IF
+    2               2                    ***0***      `uvm_object_utils(uart_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    2                                    ***0***     Count coming in to IF
+    2               3                    ***0***      `uvm_object_utils(uart_seq)
+    2               4                    ***0***      `uvm_object_utils(uart_seq)
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    2                                    ***0***     Count coming in to IF
+    2               5                    ***0***      `uvm_object_utils(uart_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+------------------------------------IF Branch------------------------------------
+    2                                    ***0***     Count coming in to IF
+    2               6                    ***0***      `uvm_object_utils(uart_seq)
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              2         0         2      0.00
+
+================================Condition Details================================
+
+Condition Coverage for file ../uvc/seq/uart_seq.sv --
+
+----------------Focused Condition View-------------------
+Line       2 Item    1  (name != 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+   Input Term   Covered  Reason for no coverage   Hint
+  -----------  --------  -----------------------  --------------
+  (name != 0)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (name != 0)_0         -                             
+  Row   2:    ***0***  (name != 0)_1         -                             
+
+----------------Focused Condition View-------------------
+Line       2 Item    2  (tmp_data__ != null)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+            Input Term   Covered  Reason for no coverage   Hint
+           -----------  --------  -----------------------  --------------
+  (tmp_data__ != null)         N  No hits                  Hit '_0' and '_1'
+
+     Rows:       Hits  FEC Target              Non-masking condition(s)      
+ ---------  ---------  --------------------    -------------------------     
+  Row   1:    ***0***  (tmp_data__ != null)_0  -                             
+  Row   2:    ***0***  (tmp_data__ != null)_1  -                             
+
+
+
+=================================================================================
+=== File: ../uvc/tests/base_test.sv
+=================================================================================
+Branch Coverage:
+    Enabled Coverage            Active      Hits    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    Branches                         8         3         5     37.50
+
+================================Branch Details================================
+
+Branch Coverage for file ../uvc/tests/base_test.sv --
+
+------------------------------------IF Branch------------------------------------
+    38                                        11     Count coming in to IF
+    38              1                         11         `uvm_info("TEST","=============================", UVM_NONE);
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    39                                        11     Count coming in to IF
+    39              1                         11         if (error_cnt == 0) begin
+    41              1                    ***0***         end else begin
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    40                                        11     Count coming in to IF
+    40              1                         11             `uvm_info("TEST","TEST PASSED", UVM_NONE);
+                                         ***0***     All False Count
+Branch totals: 1 hit of 2 branches = 50.00%
+
+------------------------------------IF Branch------------------------------------
+    42                                   ***0***     Count coming in to IF
+    42              1                    ***0***             `uvm_info("TEST",$sformatf("TEST FAILED with %0d errors", error_cnt), UVM_NONE);
+                                         ***0***     All False Count
+Branch totals: 0 hits of 2 branches = 0.00%
+
+
+Condition Coverage:
+    Enabled Coverage            Active   Covered    Misses % Covered
+    ----------------            ------      ----    ------ ---------
+    FEC Condition Terms              1         0         1      0.00
+
+================================Condition Details================================
+
+Condition Coverage for file ../uvc/tests/base_test.sv --
+
+----------------Focused Condition View-------------------
+Line       39 Item    1  (error_cnt == 0)
+Condition totals: 0 of 1 input term covered = 0.00%
+
+        Input Term   Covered  Reason for no coverage   Hint
+       -----------  --------  -----------------------  --------------
+  (error_cnt == 0)         N  '_0' not hit             Hit '_0'
+
+     Rows:       Hits  FEC Target            Non-masking condition(s)      
+ ---------  ---------  --------------------  -------------------------     
+  Row   1:    ***0***  (error_cnt == 0)_0    -                             
+  Row   2:         11  (error_cnt == 0)_1    -                             
+
+
+
+COVERGROUP COVERAGE:
+-----------------------------------------------------------------------------------------------
+Covergroup                                             Metric       Goal    Status               
+                                                                                              
+-----------------------------------------------------------------------------------------------
+ TYPE /uart_pkg/uart_coverage/cov_inst                100.00%        100    Covered              
+    covered/total bins:                                    30         30                      
+    missing/total bins:                                     0         30                      
+    % Hit:                                            100.00%        100                      
+    Coverpoint cov_inst::CP_TX_DATA                   100.00%        100    Covered              
+        covered/total bins:                                12         12                      
+        missing/total bins:                                 0         12                      
+        % Hit:                                        100.00%        100                      
+        bin tx_data_ranges[0]                             177          1    Covered              
+        bin tx_data_ranges[1]                             124          1    Covered              
+        bin tx_data_ranges[2]                             138          1    Covered              
+        bin tx_data_ranges[3]                             120          1    Covered              
+        bin tx_data_ranges[4]                             133          1    Covered              
+        bin tx_data_ranges[5]                             125          1    Covered              
+        bin tx_data_ranges[6]                             114          1    Covered              
+        bin tx_data_ranges[7]                             119          1    Covered              
+        bin tx_data_corner[0]                               2          1    Covered              
+        bin tx_data_corner[85]                              3          1    Covered              
+        bin tx_data_corner[170]                             6          1    Covered              
+        bin tx_data_corner[255]                             3          1    Covered              
+    Coverpoint cov_inst::CP_LENGTH                    100.00%        100    Covered              
+        covered/total bins:                                 4          4                      
+        missing/total bins:                                 0          4                      
+        % Hit:                                        100.00%        100                      
+        bin length_ranges[5]                               10          1    Covered              
+        bin length_ranges[6]                               10          1    Covered              
+        bin length_ranges[7]                               10          1    Covered              
+        bin length_ranges[8]                             1020          1    Covered              
+    Coverpoint cov_inst::CP_BAUD                      100.00%        100    Covered              
+        covered/total bins:                                 8          8                      
+        missing/total bins:                                 0          8                      
+        % Hit:                                        100.00%        100                      
+        bin baud_ranges[4800]                             125          1    Covered              
+        bin baud_ranges[9600]                             116          1    Covered              
+        bin baud_ranges[14400]                            131          1    Covered              
+        bin baud_ranges[19200]                            138          1    Covered              
+        bin baud_ranges[38400]                            143          1    Covered              
+        bin baud_ranges[57600]                            122          1    Covered              
+        bin baud_ranges[115200]                           127          1    Covered              
+        bin baud_ranges[128000]                           148          1    Covered              
+    Coverpoint cov_inst::CP_PARITY_EN                 100.00%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                        100.00%        100                      
+        bin parity_en_0                                    20          1    Covered              
+        bin parity_en_1                                  1030          1    Covered              
+    Coverpoint cov_inst::CP_PARITY_TYPE               100.00%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                        100.00%        100                      
+        bin parity_type_0                                 517          1    Covered              
+        bin parity_type_1                                 533          1    Covered              
+    Coverpoint cov_inst::CP_STOP2                     100.00%        100    Covered              
+        covered/total bins:                                 2          2                      
+        missing/total bins:                                 0          2                      
+        % Hit:                                        100.00%        100                      
+        bin stop_0                                       1045          1    Covered              
+        bin stop_1                                          5          1    Covered              
+
+TOTAL COVERGROUP COVERAGE: 100.00%  COVERGROUP TYPES: 1
+
+ASSERTION RESULTS:
+--------------------------------------------------------------------
+Name                 File(Line)                   Failure      Pass 
+                                                  Count        Count
+--------------------------------------------------------------------
+/uart_pkg/uart_seq/body/#ublk#144335527#12/immed__15
+                     ../uvc/seq/uart_seq.sv(15)
+                                                        0          1
+/uart_pkg/rand_baud_seq/body/#ublk#144335527#13/immed__16
+                     ../uvc/seq/rand_baud_seq.sv(16)
+                                                        0          1
+/uart_pkg/rand_baud_with_2_stop_seq/body/#ublk#144335527#12/immed__15
+                     ../uvc/seq/rand_baud_with_2_stop_seq.sv(15)
+                                                        0          1
+/uart_pkg/rand_baud_len5p_seq/body/#ublk#144335527#13/immed__16
+                     ../uvc/seq/rand_baud_len5p_seq.sv(16)
+                                                        0          1
+/uart_pkg/rand_baud_len6p_seq/body/#ublk#144335527#13/immed__16
+                     ../uvc/seq/rand_baud_len6p_seq.sv(16)
+                                                        0          1
+/uart_pkg/rand_baud_len7p_seq/body/#ublk#144335527#13/immed__16
+                     ../uvc/seq/rand_baud_len7p_seq.sv(16)
+                                                        0          1
+/uart_pkg/rand_baud_len8p_seq/body/#ublk#144335527#13/immed__16
+                     ../uvc/seq/rand_baud_len8p_seq.sv(16)
+                                                        0          1
+/uart_pkg/rand_baud_len5_seq/body/#ublk#144335527#14/immed__17
+                     ../uvc/seq/seq_lib.sv(17)          0          1
+/uart_pkg/rand_baud_len6_seq/body/#ublk#144335527#47/immed__50
+                     ../uvc/seq/seq_lib.sv(50)          0          1
+/uart_pkg/rand_baud_len7_seq/body/#ublk#144335527#79/immed__82
+                     ../uvc/seq/seq_lib.sv(82)          0          1
+/uart_pkg/rand_baud_len8_seq/body/#ublk#144335527#112/immed__115
+                     ../uvc/seq/seq_lib.sv(115)
+                                                        0          1
+
+Total Coverage By File (code coverage only, filtered view): 55.77%
+

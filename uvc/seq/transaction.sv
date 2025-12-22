@@ -17,7 +17,7 @@ class transaction extends uvm_sequence_item;
   
  
   
-  constraint baud_c { baud inside {4800,9600,14400,19200,38400,57600}; }
+  constraint baud_c { baud inside {4800,9600,14400,19200,38400,57600, 115200, 128000}; }
   constraint length_c { length inside {5,6,7,8}; }
  
   function new(string name = "transaction");

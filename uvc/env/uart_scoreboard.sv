@@ -3,9 +3,9 @@ class uart_scoreboard extends uvm_scoreboard;
 `uvm_component_utils(uart_scoreboard)
  
   uvm_analysis_imp#(transaction,uart_scoreboard) recv;
-  bit [31:0] arr[32] = '{default:0};
-  bit [31:0] addr    = 0;
-  bit [31:0] data_rd = 0;
+  // bit [31:0] arr[32] = '{default:0};
+  // bit [31:0] addr    = 0;
+  // bit [31:0] data_rd = 0;
  
  
  
